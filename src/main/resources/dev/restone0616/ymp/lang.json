@@ -1,0 +1,12 @@
+{
+  "preparing-download": "准备下载中...",
+  "resolving-api": "解析API中...",
+  "requesting-task": "请求任务中...",
+  "creating-task": "创建任务中...",
+  "downloading-file": "缓存文件中...",
+  "complete": "预加载完成! 即将开始播放",
+  "network-error": "网络错误, 请重试",
+  "download-error": "下载错误, 请重试",
+  "server-processing": "服务器处理中(该过程耗时较长, 请耐心等待)...",
+  "downloading-subtitles": "下载字幕中..."
+}

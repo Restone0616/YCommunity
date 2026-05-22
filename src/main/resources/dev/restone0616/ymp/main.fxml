@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="dev.restone0616.ymp.controller.MainController"
+           stylesheets="@main.css">
+    <!-- 原有内容 -->
+    <BorderPane styleClass="root-container">
+        <center>
+            <ScrollPane fx:id="scrollPane"
+                        fitToWidth="true"
+                        hbarPolicy="NEVER"
+                        styleClass="scroll-pane">
+                <VBox fx:id="container" spacing="8" styleClass="group-container" />
+            </ScrollPane>
+        </center>
+    </BorderPane>
+
+    <Button styleClass="login-button"
+            StackPane.alignment="BOTTOM_RIGHT"
+            fx:id="loginButton">
+        <StackPane.margin>
+            <Insets bottom="24" right="24" />
+        </StackPane.margin>
+        <graphic>
+            <ImageView fitHeight="50" fitWidth="50" fx:id="loginButtonView">
+                <Image url="@./icons/login.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+</StackPane>

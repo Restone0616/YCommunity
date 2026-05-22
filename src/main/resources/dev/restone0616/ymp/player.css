@@ -1,0 +1,132 @@
+.root {
+    -fx-background-color: #2b2b2b;
+}
+
+.video-pane {
+    -fx-background-color: black;
+}
+
+.toolbar {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-padding: 8 15 8 15;
+    -fx-opacity: 0;
+}
+
+.button {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 5;
+}
+
+.button:hover {
+    -fx-opacity: 0.8;
+}
+
+.progress-slider {
+    -fx-pref-height: 20px;
+    -fx-padding: 0;
+}
+
+.progress-slider .track {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-pref-height: 4px;
+    -fx-background-radius: 2px;
+}
+
+.progress-slider .track:focused {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}
+
+.progress-slider .fill {
+    -fx-background-color: #ff5555;
+}
+
+.progress-slider .thumb {
+    -fx-background-color: #ff5555;
+    -fx-pref-height: 14px;
+    -fx-pref-width: 14px;
+    -fx-background-radius: 7px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 3, 0, 0, 1);
+}
+
+.progress-slider .thumb:hover {
+    -fx-background-color: #ff7777;
+    -fx-pref-height: 16px;
+    -fx-pref-width: 16px;
+    -fx-background-radius: 8px;
+}
+
+.progress-slider .thumb:pressed {
+    -fx-background-color: #ff3333;
+}
+
+.subtitle-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-padding: 6 16 6 16;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 2 , 0 , 1 , 1 );
+    -fx-alignment: center;
+}
+
+.danmaku-input-pane {
+    -fx-pref-width: 800px;
+    -fx-max-width: 800px;
+    -fx-pref-height: 32px;
+    -fx-max-height: 32px;
+    -fx-min-height: 32px;
+}
+
+.danmaku-text-field {
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-padding: 0 70 0 15;
+    -fx-background-color: rgba(255,255,255,0.15);
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255,255,255,0.5);
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-pref-height: 32px;
+    -fx-min-height: 32px;
+    -fx-max-height: 32px;
+}
+
+.send-danmaku-button {
+    -fx-background-color: #ff5555;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0 16 16 0;
+    -fx-border-radius: 0 16 16 0;
+    -fx-padding: 0 12 0 12;
+    -fx-cursor: hand;
+    -fx-pref-height: 32px;
+    -fx-min-height: 32px;
+    -fx-max-height: 32px;
+    -fx-translate-x: -1px;
+}
+
+.danmaku-label {
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow( one-pass-box , black , 0 , 0 , 0 , 1 ),
+    dropshadow( one-pass-box , black , 0 , 0 , 1 , 1 );
+    -fx-background-color: transparent;
+    -fx-padding: 2 8 2 8;
+}
+
+.danmaku-text-field:focused {
+    -fx-background-color: rgba(255,255,255,0.25);
+    -fx-border-color: #ff5555;
+    -fx-border-width: 1px;
+}
+
+.send-danmaku-button:hover {
+    -fx-background-color: #ff7777;
+}
+
+.send-danmaku-button:pressed {
+    -fx-background-color: #ff3333;
+}

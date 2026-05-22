@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane styleClass="popup-root" stylesheets="@popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.restone0616.ymp.controller.PopupController" prefWidth="432" prefHeight="200">
+    <top>
+        <HBox fx:id="titleBar" styleClass="title-bar">
+            <Label fx:id="titleLabel" styleClass="title-label" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="minBtn" styleClass="min-btn" text="─" />
+            <Button fx:id="closeBtn" styleClass="close-btn" text="✕" />
+        </HBox>
+    </top>
+
+    <center>
+        <Label fx:id="messageLabel" styleClass="message-label" wrapText="true" VBox.vgrow="ALWAYS" />
+    </center>
+
+    <bottom>
+        <HBox styleClass="bottom-box" alignment="CENTER_RIGHT">
+            <Button fx:id="firstButton" styleClass="confirm-btn" />
+            <Region prefWidth="20"/>
+            <Button fx:id="secondButton" styleClass="confirm-btn"/>
+        </HBox>
+    </bottom>
+</BorderPane>

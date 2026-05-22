@@ -1,0 +1,64 @@
+.popup-root {
+    -fx-background-color: rgba(255, 255, 255, 0.95);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.2, 0, 4);
+}
+
+.title-bar {
+    -fx-background-color: rgba(60, 63, 65, 0.85);
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 8 10 8 10;
+    -fx-alignment: center-left;
+}
+
+.title-label {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.min-btn, .close-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 2 8 2 8;
+    -fx-background-radius: 4;
+}
+
+.min-btn:hover, .close-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.25);
+}
+
+.message-label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 15px;
+    -fx-padding: 25 20 10 20;
+    -fx-wrap-text: true;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-content-display: center;
+    -fx-graphic-text-gap: 0;
+}
+
+.bottom-box {
+    -fx-padding: 10 20 15 20;
+    -fx-alignment: center-right;
+    -fx-background-color: transparent;
+}
+
+.confirm-btn {
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 28 8 28;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+}
+
+.confirm-btn:hover {
+    -fx-background-color: #45a049;
+}
