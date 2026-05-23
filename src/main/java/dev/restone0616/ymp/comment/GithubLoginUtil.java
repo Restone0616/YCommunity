@@ -15,6 +15,8 @@ import org.kohsuke.github.GitHubBuilder;
 import java.awt.*;
 import java.io.*;
 import java.net.*;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -186,29 +188,26 @@ public class GithubLoginUtil {
         }
     }
     private static @Nullable String exchangeCodeForToken(@NotNull String code) throws IOException {
-        URL url = new URL(TOKEN_URL);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Accept", "application/json");
-        conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-        conn.setDoOutput(true);
         String postData = buildTokenRequestParams(code);
-        try (OutputStream os = conn.getOutputStream()) {
-            byte[] input = postData.getBytes(StandardCharsets.UTF_8);
-            os.write(input, 0, input.length);
-        }
-        int responseCode = conn.getResponseCode();
-        if (responseCode == HttpURLConnection.HTTP_OK) {
-            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = br.readLine()) != null)
-                    response.append(line);
-                JsonObject jsonResponse = Application.gson.fromJson(response.toString(), JsonObject.class);
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(TOKEN_URL))
+                .header("Accept", "application/json")
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .POST(HttpRequest.BodyPublishers.ofString(postData, StandardCharsets.UTF_8))
+                .build();
+
+        try {
+            HttpResponse<String> response = Application.httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.statusCode() == 200) {
+                JsonObject jsonResponse = Application.gson.fromJson(response.body(), JsonObject.class);
                 return jsonResponse.get("access_token").getAsString();
+            } else {
+                return null;
             }
-        } else
-            return null;
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            throw new IOException("Request interrupted", e);
+        }
     }
     private static @NotNull String buildTokenRequestParams(@NotNull String code) {
         Map<String, String> params = new HashMap<>();
