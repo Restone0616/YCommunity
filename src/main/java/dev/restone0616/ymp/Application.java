@@ -49,7 +49,6 @@ public class Application extends javafx.application.Application {
         stage.setTitle(TITLE);
         stage.getIcons().add(new Image(Objects.requireNonNull(Application.class.getResourceAsStream("icon.png"))));
         stage.setScene(scene);
-        stage.setOnCloseRequest(event -> Platform.exit());
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")

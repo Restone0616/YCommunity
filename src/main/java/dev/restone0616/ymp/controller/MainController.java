@@ -64,13 +64,15 @@ public class MainController {
         scrollPane.setFitToWidth(true);
         scrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-        stage.setOnCloseRequest(event -> Platform.exit());
+        stage.setOnCloseRequest(event -> System.exit(0));
         loginButton.setOnMouseClicked(event -> {
             if(event.getButton() == MouseButton.PRIMARY)
                 onLoginButtonClick();
         });
 
         LoadingController controller = LoadingController.open(stage);
+        controller.getStage().setOnCloseRequest(event -> System.exit(0));
+
         Objects.requireNonNull(controller);
         controller.updateProgress("正在初始化...", -1);
 
@@ -145,7 +147,7 @@ public class MainController {
             } catch (Exception ignored) {
                 Platform.runLater(() -> {
                     PopupController.open(controller.getStage(), "提示", "无法获取播放列表!", "确定", null);
-                    Platform.exit();
+                    System.exit(0);
                 });
             }
         }).start();
